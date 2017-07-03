@@ -25,8 +25,10 @@ namespace Connect3
 
         private void _image00_Click(object sender, System.EventArgs e)
         {
+            _image00.TranslationY = -1000f;
             _image00.SetImageResource(Resource.Drawable.yellow);
-            _image00.get
+            _image00.Animate().TranslationYBy(1000f).Rotation(360).SetDuration(500);
+
         }
     }
 }

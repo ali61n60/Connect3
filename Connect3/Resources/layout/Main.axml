@@ -10,7 +10,6 @@
     p1:background="@drawable/board"
     p1:layout_gravity="center_vertical">
     <ImageView
-        p1:src="@drawable/red"
         p1:id="@+id/imageView00"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
