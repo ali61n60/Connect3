@@ -17,7 +17,6 @@
         p1:layout_column="0"
         p1:layout_margin="15dp" />
     <ImageView
-        p1:src="@drawable/red"
         p1:id="@+id/imageView01"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
@@ -26,7 +25,6 @@
         p1:layout_margin="15dp"
         p1:layout_marginLeft="35dp" />
     <ImageView
-        p1:src="@drawable/red"
         p1:id="@+id/imageView02"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
@@ -34,7 +32,6 @@
         p1:layout_column="2"
         p1:layout_margin="15dp" />
     <ImageView
-        p1:src="@drawable/red"
         p1:id="@+id/imageView10"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
@@ -42,7 +39,6 @@
         p1:layout_column="0"
         p1:layout_margin="15dp" />
     <ImageView
-        p1:src="@drawable/red"
         p1:id="@+id/imageView11"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
@@ -51,7 +47,6 @@
         p1:layout_margin="15dp"
         p1:layout_marginLeft="35dp" />
     <ImageView
-        p1:src="@drawable/red"
         p1:id="@+id/imageView12"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
@@ -59,7 +54,6 @@
         p1:layout_column="2"
         p1:layout_margin="15dp" />
     <ImageView
-        p1:src="@drawable/red"
         p1:id="@+id/imageView20"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
@@ -67,7 +61,6 @@
         p1:layout_column="0"
         p1:layout_margin="15dp" />
     <ImageView
-        p1:src="@drawable/red"
         p1:id="@+id/imageView21"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
@@ -76,7 +69,6 @@
         p1:layout_margin="15dp"
         p1:layout_marginLeft="35dp" />
     <ImageView
-        p1:src="@drawable/red"
         p1:id="@+id/imageView22"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
