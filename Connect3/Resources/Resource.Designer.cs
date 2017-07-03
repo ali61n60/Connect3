@@ -66,6 +66,49 @@ namespace Connect3
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int gridLayout1 = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int imageView00 = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int imageView01 = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int imageView02 = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int imageView10 = 2131034116;
+			
+			// aapt resource value: 0x7f050005
+			public const int imageView11 = 2131034117;
+			
+			// aapt resource value: 0x7f050006
+			public const int imageView12 = 2131034118;
+			
+			// aapt resource value: 0x7f050007
+			public const int imageView20 = 2131034119;
+			
+			// aapt resource value: 0x7f050008
+			public const int imageView21 = 2131034120;
+			
+			// aapt resource value: 0x7f050009
+			public const int imageView22 = 2131034121;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			

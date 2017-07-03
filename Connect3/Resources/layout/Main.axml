@@ -1,7 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-</LinearLayout>
+<GridLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="360dp"
+    p1:id="@+id/gridLayout1"
+    p1:columnCount="3"
+    p1:rowCount="3"
+    p1:background="@drawable/board"
+    p1:layout_gravity="center_vertical">
+    <ImageView
+        p1:src="@drawable/red"
+        p1:id="@+id/imageView00"
+        p1:layout_width="90dp"
+        p1:layout_height="90dp"
+        p1:layout_row="0"
+        p1:layout_column="0"
+        p1:layout_margin="15dp" />
+    <ImageView
+        p1:src="@drawable/red"
+        p1:id="@+id/imageView01"
+        p1:layout_width="90dp"
+        p1:layout_height="90dp"
+        p1:layout_row="0"
+        p1:layout_column="1"
+        p1:layout_margin="15dp"
+        p1:layout_marginLeft="35dp" />
+    <ImageView
+        p1:src="@drawable/red"
+        p1:id="@+id/imageView02"
+        p1:layout_width="90dp"
+        p1:layout_height="90dp"
+        p1:layout_row="0"
+        p1:layout_column="2"
+        p1:layout_margin="15dp" />
+    <ImageView
+        p1:src="@drawable/red"
+        p1:id="@+id/imageView10"
+        p1:layout_width="90dp"
+        p1:layout_height="90dp"
+        p1:layout_row="1"
+        p1:layout_column="0"
+        p1:layout_margin="15dp" />
+    <ImageView
+        p1:src="@drawable/red"
+        p1:id="@+id/imageView11"
+        p1:layout_width="90dp"
+        p1:layout_height="90dp"
+        p1:layout_row="1"
+        p1:layout_column="1"
+        p1:layout_margin="15dp"
+        p1:layout_marginLeft="35dp" />
+    <ImageView
+        p1:src="@drawable/red"
+        p1:id="@+id/imageView12"
+        p1:layout_width="90dp"
+        p1:layout_height="90dp"
+        p1:layout_row="1"
+        p1:layout_column="2"
+        p1:layout_margin="15dp" />
+    <ImageView
+        p1:src="@drawable/red"
+        p1:id="@+id/imageView20"
+        p1:layout_width="90dp"
+        p1:layout_height="90dp"
+        p1:layout_row="2"
+        p1:layout_column="0"
+        p1:layout_margin="15dp" />
+    <ImageView
+        p1:src="@drawable/red"
+        p1:id="@+id/imageView21"
+        p1:layout_width="90dp"
+        p1:layout_height="90dp"
+        p1:layout_row="2"
+        p1:layout_column="1"
+        p1:layout_margin="15dp"
+        p1:layout_marginLeft="35dp" />
+    <ImageView
+        p1:src="@drawable/red"
+        p1:id="@+id/imageView22"
+        p1:layout_width="90dp"
+        p1:layout_height="90dp"
+        p1:layout_row="2"
+        p1:layout_column="2"
+        p1:layout_margin="15dp" />
+</GridLayout>
