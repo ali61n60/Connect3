@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Views;
 
 namespace Connect3
 {
@@ -16,6 +17,7 @@ namespace Connect3
         private ImageView _image20;
         private ImageView _image21;
         private ImageView _image22;
+        private LinearLayout _linearLayoutMessage;
         private Player _activePlayer = Player.RedPlayer;
         
         private readonly BlockStatus[] _allBlocksStatus=new BlockStatus[9];
@@ -46,6 +48,9 @@ namespace Connect3
             _image21.Click += imamge_Click;
             _image22 = FindViewById<ImageView>(Resource.Id.imageView22);
             _image22.Click += imamge_Click;
+
+            _linearLayoutMessage = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
+            _linearLayoutMessage.Visibility=ViewStates.Invisible;
         }
         
         private void imamge_Click(object sender, System.EventArgs e)
@@ -72,7 +77,7 @@ namespace Connect3
                     return;
             }
             Toast.MakeText(this,"All Blocks Are Taken. No Winner",ToastLength.Long).Show();
-            resetGame();
+            _linearLayoutMessage.Visibility=ViewStates.Visible;
         }
 
         private void checkWinner()
@@ -140,7 +145,7 @@ namespace Connect3
             else if (winner == Winner.YellowPlayer)
                 message = "Yellow Player Won";
             Toast.MakeText(this,message,ToastLength.Long).Show();
-            resetGame();
+            _linearLayoutMessage.Visibility=ViewStates.Visible;
         }
 
         private void resetGame()
