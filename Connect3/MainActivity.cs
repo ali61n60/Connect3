@@ -18,6 +18,8 @@ namespace Connect3
         private ImageView _image21;
         private ImageView _image22;
         private LinearLayout _linearLayoutMessage;
+        private Button _buttonResetGame;
+        private TextView _textViewMessage;
         private Player _activePlayer = Player.RedPlayer;
         
         private readonly BlockStatus[] _allBlocksStatus=new BlockStatus[9];
@@ -51,8 +53,18 @@ namespace Connect3
 
             _linearLayoutMessage = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
             _linearLayoutMessage.Visibility=ViewStates.Invisible;
+
+            _textViewMessage = FindViewById<TextView>(Resource.Id.textViewMessage);
+            _buttonResetGame = FindViewById<Button>(Resource.Id.buttonReset);
+            _buttonResetGame.Click += _buttonResetGame_Click;
         }
-        
+
+        private void _buttonResetGame_Click(object sender, System.EventArgs e)
+        {
+            _linearLayoutMessage.Visibility=ViewStates.Invisible;
+
+        }
+
         private void imamge_Click(object sender, System.EventArgs e)
         {
             ImageView imageView = (ImageView) sender;
@@ -76,7 +88,7 @@ namespace Connect3
                 if(blockStatus==BlockStatus.UnTaken)
                     return;
             }
-            Toast.MakeText(this,"All Blocks Are Taken. No Winner",ToastLength.Long).Show();
+            _textViewMessage.Text = "All Blocks Are Taken. No Winner";
             _linearLayoutMessage.Visibility=ViewStates.Visible;
         }
 
@@ -144,7 +156,7 @@ namespace Connect3
                 message = "Red Player Won";
             else if (winner == Winner.YellowPlayer)
                 message = "Yellow Player Won";
-            Toast.MakeText(this,message,ToastLength.Long).Show();
+            _textViewMessage.Text = message;
             _linearLayoutMessage.Visibility=ViewStates.Visible;
         }
 
