@@ -17,13 +17,11 @@ namespace Connect3
         private ImageView _image21;
         private ImageView _image22;
         private Player _activePlayer = Player.RedPlayer;
-        private bool[] takenBlocks=new bool[9];
-        BlockStatus[] _allBlocksStatuses=new BlockStatus[9];
+        
+        private readonly BlockStatus[] _allBlocksStatus=new BlockStatus[9];
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
-            // Set our view from the "main" layout resource
             SetContentView (Resource.Layout.Main);
             initFields();
         }
@@ -54,16 +52,134 @@ namespace Connect3
         {
             ImageView imageView = (ImageView) sender;
             int clickedBlock = int.Parse(imageView.Tag.ToString());
-            if (_allBlocksStatuses[clickedBlock]!=BlockStatus.UnTaken)
+            if (_allBlocksStatus[clickedBlock]!=BlockStatus.UnTaken)
             {
-                Toast.MakeText(this, "already taken", ToastLength.Short).Show();
+                showBlockAlreadyTaken();
                 return;
             }
             saveCurrentlyClickedBlockStatus(clickedBlock);
+            animateImageIntoField(imageView);
+            toggleActivePlayer();
+            checkWinner();
+            checkAllBlocksTaken();
+        }
+
+        private void checkAllBlocksTaken()
+        {
+            foreach (BlockStatus blockStatus in _allBlocksStatus)
+            {
+                if(blockStatus==BlockStatus.UnTaken)
+                    return;
+            }
+            Toast.MakeText(this,"All Blocks Are Taken. No Winner",ToastLength.Long).Show();
+            resetGame();
+        }
+
+        private void checkWinner()
+        {
+            Winner winner;
+            //row win
+            winner= checkAllSame(0, 1, 2);
+            if (winner != Winner.Non)
+            {
+                showWinner(winner);
+                return;
+            }
+            winner = checkAllSame(3,4,5);
+            if (winner != Winner.Non)
+            {
+                showWinner(winner);
+                return;
+            }
+            winner = checkAllSame(6,7,8);
+            if (winner != Winner.Non)
+            {
+                showWinner(winner);
+                return;
+            }
+            //column win
+            winner = checkAllSame(0,3,6);
+            if (winner != Winner.Non)
+            {
+                showWinner(winner);
+                return;
+            }
+            winner = checkAllSame(1,4,7);
+            if (winner != Winner.Non)
+            {
+                showWinner(winner);
+                return;
+            }
+            winner = checkAllSame(2,5,8);
+            if (winner != Winner.Non)
+            {
+                showWinner(winner);
+                return;
+            }
+            //diagonal win
+            winner = checkAllSame(0, 4,8);
+            if (winner != Winner.Non)
+            {
+                showWinner(winner);
+                return;
+            }
+            winner = checkAllSame(2,4,6);
+            if (winner != Winner.Non)
+            {
+                showWinner(winner);
+                return;
+            }
+        }
+
+
+        private void showWinner(Winner winner)
+        {
+            string message = "";
+            if (winner == Winner.RedPlayer)
+                message = "Red Player Won";
+            else if (winner == Winner.YellowPlayer)
+                message = "Yellow Player Won";
+            Toast.MakeText(this,message,ToastLength.Long).Show();
+            resetGame();
+        }
+
+        private void resetGame()
+        {
+            for(int i=0;i<_allBlocksStatus.Length;i++)
+                _allBlocksStatus[i]=BlockStatus.UnTaken;
+            _image00.SetImageResource(0);
+            _image01.SetImageResource(0);
+            _image02.SetImageResource(0);
+            _image10.SetImageResource(0);
+            _image11.SetImageResource(0);
+            _image12.SetImageResource(0);
+            _image20.SetImageResource(0);
+            _image21.SetImageResource(0);
+            _image22.SetImageResource(0);
+        }
+
+        private Winner checkAllSame(int i, int j, int k)
+        {
+            //check for red
+            if(_allBlocksStatus[i]==BlockStatus.Red && _allBlocksStatus[j] == BlockStatus.Red && _allBlocksStatus[k] == BlockStatus.Red)
+                return Winner.RedPlayer;
+            if(_allBlocksStatus[i] == BlockStatus.Yellow && _allBlocksStatus[j] == BlockStatus.Yellow && _allBlocksStatus[k] == BlockStatus.Yellow)
+                return Winner.YellowPlayer;
+            //check for yellow
+            return Winner.Non;
+        }
+
+
+        private void showBlockAlreadyTaken()
+        {
+            Toast.MakeText(this, "already taken", ToastLength.Short).Show();
+        }
+
+        private void animateImageIntoField(ImageView imageView)
+        {
             imageView.TranslationY = -1000f;
             imageView.SetImageResource(getImageResourceBasedOnActivePlayer());
             imageView.Animate().TranslationYBy(1000f).Rotation(360).SetDuration(500);
-            toggleActivePlayer();
         }
 
         private void saveCurrentlyClickedBlockStatus(int clickedBlock)
@@ -71,10 +187,10 @@ namespace Connect3
             switch (_activePlayer)
             {
                 case Player.RedPlayer:
-                    _allBlocksStatuses[clickedBlock]=BlockStatus.Red;
+                    _allBlocksStatus[clickedBlock]=BlockStatus.Red;
                     break;
                     case Player.YellowPlayer:
-                    _allBlocksStatuses[clickedBlock]=BlockStatus.Yellow;
+                    _allBlocksStatus[clickedBlock]=BlockStatus.Yellow;
                     break;
             }
         }
@@ -113,6 +229,13 @@ namespace Connect3
         UnTaken,
         Red,
         Yellow
+    }
+
+    public enum Winner
+    {
+        RedPlayer,
+        YellowPlayer,
+        Non
     }
 }
 
