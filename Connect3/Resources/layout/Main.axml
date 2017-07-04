@@ -1,84 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:p1="http://schemas.android.com/apk/res/android"
     p1:minWidth="25px"
     p1:minHeight="25px"
     p1:layout_width="match_parent"
-    p1:layout_height="360dp"
-    p1:id="@+id/gridLayout1"
-    p1:columnCount="3"
-    p1:rowCount="3"
-    p1:background="@drawable/board"
-    p1:layout_gravity="center_vertical">
-    <ImageView
-        p1:id="@+id/imageView00"
-        p1:layout_width="90dp"
-        p1:layout_height="90dp"
-        p1:layout_row="0"
-        p1:layout_column="0"
-        p1:layout_margin="15dp"
-        p1:tag="0" />
-    <ImageView
-        p1:id="@+id/imageView01"
-        p1:layout_width="90dp"
-        p1:layout_height="90dp"
-        p1:layout_row="0"
-        p1:layout_column="1"
-        p1:layout_margin="15dp"
-        p1:tag="1" />
-    <ImageView
-        p1:id="@+id/imageView02"
-        p1:layout_width="90dp"
-        p1:layout_height="90dp"
-        p1:layout_row="0"
-        p1:layout_column="2"
-        p1:layout_margin="15dp"
-        p1:tag="2" />
-    <ImageView
-        p1:id="@+id/imageView10"
-        p1:layout_width="90dp"
-        p1:layout_height="90dp"
-        p1:layout_row="1"
-        p1:layout_column="0"
-        p1:layout_margin="15dp"
-        p1:tag="3" />
-    <ImageView
-        p1:id="@+id/imageView11"
-        p1:layout_width="90dp"
-        p1:layout_height="90dp"
-        p1:layout_row="1"
-        p1:layout_column="1"
-        p1:layout_margin="15dp"
-        p1:tag="4" />
-    <ImageView
-        p1:id="@+id/imageView12"
-        p1:layout_width="90dp"
-        p1:layout_height="90dp"
-        p1:layout_row="1"
-        p1:layout_column="2"
-        p1:layout_margin="15dp"
-        p1:tag="5" />
-    <ImageView
-        p1:id="@+id/imageView20"
-        p1:layout_width="90dp"
-        p1:layout_height="90dp"
-        p1:layout_row="2"
-        p1:layout_column="0"
-        p1:layout_margin="15dp"
-        p1:tag="6" />
-    <ImageView
-        p1:id="@+id/imageView21"
-        p1:layout_width="90dp"
-        p1:layout_height="90dp"
-        p1:layout_row="2"
-        p1:layout_column="1"
-        p1:layout_margin="15dp"
-        p1:tag="7" />
-    <ImageView
-        p1:id="@+id/imageView22"
-        p1:layout_width="90dp"
-        p1:layout_height="90dp"
-        p1:layout_row="2"
-        p1:layout_column="2"
-        p1:layout_margin="15dp"
-        p1:tag="8" />
-</GridLayout>
+    p1:layout_height="match_parent"
+    p1:id="@+id/relativeLayout1">
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:id="@+id/linearLayout1"
+        p1:layout_height="wrap_content"
+        p1:layout_width="match_parent"
+        p1:layout_alignParentBottom="true">
+        <Button
+            p1:text="Reset"
+            p1:layout_width="wrap_content"
+            p1:layout_height="match_parent"
+            p1:id="@+id/buttonReset" />
+        <TextView
+            p1:text="Message"
+            p1:textAppearance="?android:attr/textAppearanceMedium"
+            p1:layout_width="wrap_content"
+            p1:layout_height="match_parent"
+            p1:id="@+id/textViewMessage"
+            p1:gravity="center" />
+    </LinearLayout>
+    <GridLayout
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="360dp"
+        p1:id="@+id/gridLayout1"
+        p1:columnCount="3"
+        p1:rowCount="3"
+        p1:background="@drawable/board"
+        p1:layout_centerInParent="true">
+        <ImageView
+            p1:id="@+id/imageView00"
+            p1:layout_width="90dp"
+            p1:layout_height="90dp"
+            p1:layout_row="0"
+            p1:layout_column="0"
+            p1:layout_margin="15dp"
+            p1:tag="0" />
+        <ImageView
+            p1:id="@+id/imageView01"
+            p1:layout_width="90dp"
+            p1:layout_height="90dp"
+            p1:layout_row="0"
+            p1:layout_column="1"
+            p1:layout_margin="15dp"
+            p1:tag="1" />
+        <ImageView
+            p1:id="@+id/imageView02"
+            p1:layout_width="90dp"
+            p1:layout_height="90dp"
+            p1:layout_row="0"
+            p1:layout_column="2"
+            p1:layout_margin="15dp"
+            p1:tag="2" />
+        <ImageView
+            p1:id="@+id/imageView10"
+            p1:layout_width="90dp"
+            p1:layout_height="90dp"
+            p1:layout_row="1"
+            p1:layout_column="0"
+            p1:layout_margin="15dp"
+            p1:tag="3" />
+        <ImageView
+            p1:id="@+id/imageView11"
+            p1:layout_width="90dp"
+            p1:layout_height="90dp"
+            p1:layout_row="1"
+            p1:layout_column="1"
+            p1:layout_margin="15dp"
+            p1:tag="4" />
+        <ImageView
+            p1:id="@+id/imageView12"
+            p1:layout_width="90dp"
+            p1:layout_height="90dp"
+            p1:layout_row="1"
+            p1:layout_column="2"
+            p1:layout_margin="15dp"
+            p1:tag="5" />
+        <ImageView
+            p1:id="@+id/imageView20"
+            p1:layout_width="90dp"
+            p1:layout_height="90dp"
+            p1:layout_row="2"
+            p1:layout_column="0"
+            p1:layout_margin="15dp"
+            p1:tag="6" />
+        <ImageView
+            p1:id="@+id/imageView21"
+            p1:layout_width="90dp"
+            p1:layout_height="90dp"
+            p1:layout_row="2"
+            p1:layout_column="1"
+            p1:layout_margin="15dp"
+            p1:tag="7" />
+        <ImageView
+            p1:id="@+id/imageView22"
+            p1:layout_width="90dp"
+            p1:layout_height="90dp"
+            p1:layout_row="2"
+            p1:layout_column="2"
+            p1:layout_margin="15dp"
+            p1:tag="8" />
+    </GridLayout>
+</RelativeLayout>
