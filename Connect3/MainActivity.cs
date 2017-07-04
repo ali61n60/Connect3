@@ -5,7 +5,9 @@ using Android.Views;
 
 namespace Connect3
 {
-    [Activity(Label = "Connect3", MainLauncher = true, Icon = "@drawable/icon")]
+    //https://developer.xamarin.com/guides/android/user_interface/material_theme/
+    [Activity(Label = "Connect3", MainLauncher = true, Icon = "@drawable/icon",
+        Theme = "@android:style/Theme.DeviceDefault.Light")]
     public class MainActivity : Activity
     {
         private ImageView _image00;
@@ -62,7 +64,7 @@ namespace Connect3
         private void _buttonResetGame_Click(object sender, System.EventArgs e)
         {
             _linearLayoutMessage.Visibility=ViewStates.Invisible;
-
+            resetGame();
         }
 
         private void imamge_Click(object sender, System.EventArgs e)
@@ -77,7 +79,9 @@ namespace Connect3
             saveCurrentlyClickedBlockStatus(clickedBlock);
             animateImageIntoField(imageView);
             toggleActivePlayer();
-            checkWinner();
+            bool onePlayerHasWon=checkWinner();
+            if(onePlayerHasWon)
+                return;
             checkAllBlocksTaken();
         }
 
@@ -92,7 +96,7 @@ namespace Connect3
             _linearLayoutMessage.Visibility=ViewStates.Visible;
         }
 
-        private void checkWinner()
+        private bool checkWinner()
         {
             Winner winner;
             //row win
@@ -100,52 +104,53 @@ namespace Connect3
             if (winner != Winner.Non)
             {
                 showWinner(winner);
-                return;
+                return true;
             }
             winner = checkAllSame(3,4,5);
             if (winner != Winner.Non)
             {
                 showWinner(winner);
-                return;
+                return true;
             }
             winner = checkAllSame(6,7,8);
             if (winner != Winner.Non)
             {
                 showWinner(winner);
-                return;
+                return true;
             }
             //column win
             winner = checkAllSame(0,3,6);
             if (winner != Winner.Non)
             {
                 showWinner(winner);
-                return;
+                return true;
             }
             winner = checkAllSame(1,4,7);
             if (winner != Winner.Non)
             {
                 showWinner(winner);
-                return;
+                return true;
             }
             winner = checkAllSame(2,5,8);
             if (winner != Winner.Non)
             {
                 showWinner(winner);
-                return;
+                return true;
             }
             //diagonal win
             winner = checkAllSame(0, 4,8);
             if (winner != Winner.Non)
             {
                 showWinner(winner);
-                return;
+                return true;
             }
             winner = checkAllSame(2,4,6);
             if (winner != Winner.Non)
             {
                 showWinner(winner);
-                return;
+                return true;
             }
+            return false;
         }
 
 

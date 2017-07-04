@@ -5,27 +5,6 @@
     p1:layout_width="match_parent"
     p1:layout_height="match_parent"
     p1:id="@+id/relativeLayout1">
-    <LinearLayout
-        p1:orientation="horizontal"
-        p1:minWidth="25px"
-        p1:minHeight="25px"
-        p1:id="@+id/linearLayout1"
-        p1:layout_height="wrap_content"
-        p1:layout_width="match_parent"
-        p1:layout_alignParentBottom="true">
-        <Button
-            p1:text="Reset"
-            p1:layout_width="wrap_content"
-            p1:layout_height="match_parent"
-            p1:id="@+id/buttonReset" />
-        <TextView
-            p1:text="Message"
-            p1:textAppearance="?android:attr/textAppearanceMedium"
-            p1:layout_width="wrap_content"
-            p1:layout_height="match_parent"
-            p1:id="@+id/textViewMessage"
-            p1:gravity="center" />
-    </LinearLayout>
     <GridLayout
         p1:minWidth="25px"
         p1:minHeight="25px"
@@ -109,4 +88,31 @@
             p1:layout_margin="15dp"
             p1:tag="8" />
     </GridLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:id="@+id/linearLayout1"
+        p1:layout_height="wrap_content"
+        p1:layout_width="match_parent"
+        p1:layout_centerVertical="true"
+        p1:background="#33ffff">
+        <Button
+            p1:text="Reset"
+            p1:layout_width="wrap_content"
+            p1:layout_height="match_parent"
+            p1:id="@+id/buttonReset"
+            p1:layout_marginRight="20dp"
+            p1:layout_marginLeft="20dp"
+            p1:layout_marginBottom="20dp" />
+        <TextView
+            p1:text="Message"
+            p1:textAppearance="?android:attr/textAppearanceMedium"
+            p1:layout_width="wrap_content"
+            p1:layout_height="match_parent"
+            p1:id="@+id/textViewMessage"
+            p1:gravity="center"
+            p1:layout_marginBottom="20dp"
+            p1:textColor="#ff6666" />
+    </LinearLayout>
 </RelativeLayout>
