@@ -16,6 +16,9 @@ namespace Connect3
         private ImageView _image20;
         private ImageView _image21;
         private ImageView _image22;
+        private Player _activePlayer = Player.RedPlayer;
+        private bool[] takenBlocks=new bool[9];
+        BlockStatus[] _allBlocksStatuses=new BlockStatus[9];
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -46,25 +49,56 @@ namespace Connect3
             _image22 = FindViewById<ImageView>(Resource.Id.imageView22);
             _image22.Click += imamge_Click;
         }
-        Player currentPlayer=Player.RedPlayer;
+        
         private void imamge_Click(object sender, System.EventArgs e)
         {
             ImageView imageView = (ImageView) sender;
-            imageView.TranslationY = -1000f;
-            int imageResource=0;
-            switch (currentPlayer)
+            int clickedBlock = int.Parse(imageView.Tag.ToString());
+            if (_allBlocksStatuses[clickedBlock]!=BlockStatus.UnTaken)
             {
-                    case Player.RedPlayer:
-                        imageResource = Resource.Drawable.red;
-                        currentPlayer=Player.YellowPlayer;
+                Toast.MakeText(this, "already taken", ToastLength.Short).Show();
+                return;
+            }
+            saveCurrentlyClickedBlockStatus(clickedBlock);
+            imageView.TranslationY = -1000f;
+            imageView.SetImageResource(getImageResourceBasedOnActivePlayer());
+            imageView.Animate().TranslationYBy(1000f).Rotation(360).SetDuration(500);
+            toggleActivePlayer();
+        }
+
+        private void saveCurrentlyClickedBlockStatus(int clickedBlock)
+        {
+            switch (_activePlayer)
+            {
+                case Player.RedPlayer:
+                    _allBlocksStatuses[clickedBlock]=BlockStatus.Red;
                     break;
                     case Player.YellowPlayer:
-                        imageResource = Resource.Drawable.yellow;
-                        currentPlayer =Player.RedPlayer;
+                    _allBlocksStatuses[clickedBlock]=BlockStatus.Yellow;
                     break;
             }
-            imageView.SetImageResource(imageResource);
-            imageView.Animate().TranslationYBy(1000f).Rotation(360).SetDuration(500);
+        }
+
+        private int getImageResourceBasedOnActivePlayer()
+        {
+            int imageResource=0;
+            switch (_activePlayer)
+            {
+                case Player.RedPlayer:
+                    imageResource = Resource.Drawable.red;
+                    break;
+                case Player.YellowPlayer:
+                    imageResource = Resource.Drawable.yellow;
+                    break;
+            }
+            return imageResource;
+        }
+
+        private void toggleActivePlayer()
+        {
+            _activePlayer = _activePlayer==Player.RedPlayer ?
+                            Player.YellowPlayer :
+                            Player.RedPlayer;
         }
     }
 
@@ -72,6 +106,13 @@ namespace Connect3
     {
         RedPlayer,
         YellowPlayer
+    }
+
+    public enum BlockStatus
+    {
+        UnTaken,
+        Red,
+        Yellow
     }
 }
 

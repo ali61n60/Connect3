@@ -15,7 +15,8 @@
         p1:layout_height="90dp"
         p1:layout_row="0"
         p1:layout_column="0"
-        p1:layout_margin="15dp" />
+        p1:layout_margin="15dp"
+        p1:tag="0" />
     <ImageView
         p1:id="@+id/imageView01"
         p1:layout_width="90dp"
@@ -23,21 +24,23 @@
         p1:layout_row="0"
         p1:layout_column="1"
         p1:layout_margin="15dp"
-        p1:layout_marginLeft="35dp" />
+        p1:tag="1" />
     <ImageView
         p1:id="@+id/imageView02"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
         p1:layout_row="0"
         p1:layout_column="2"
-        p1:layout_margin="15dp" />
+        p1:layout_margin="15dp"
+        p1:tag="2" />
     <ImageView
         p1:id="@+id/imageView10"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
         p1:layout_row="1"
         p1:layout_column="0"
-        p1:layout_margin="15dp" />
+        p1:layout_margin="15dp"
+        p1:tag="3" />
     <ImageView
         p1:id="@+id/imageView11"
         p1:layout_width="90dp"
@@ -45,21 +48,23 @@
         p1:layout_row="1"
         p1:layout_column="1"
         p1:layout_margin="15dp"
-        p1:layout_marginLeft="35dp" />
+        p1:tag="4" />
     <ImageView
         p1:id="@+id/imageView12"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
         p1:layout_row="1"
         p1:layout_column="2"
-        p1:layout_margin="15dp" />
+        p1:layout_margin="15dp"
+        p1:tag="5" />
     <ImageView
         p1:id="@+id/imageView20"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
         p1:layout_row="2"
         p1:layout_column="0"
-        p1:layout_margin="15dp" />
+        p1:layout_margin="15dp"
+        p1:tag="6" />
     <ImageView
         p1:id="@+id/imageView21"
         p1:layout_width="90dp"
@@ -67,12 +72,13 @@
         p1:layout_row="2"
         p1:layout_column="1"
         p1:layout_margin="15dp"
-        p1:layout_marginLeft="35dp" />
+        p1:tag="7" />
     <ImageView
         p1:id="@+id/imageView22"
         p1:layout_width="90dp"
         p1:layout_height="90dp"
         p1:layout_row="2"
         p1:layout_column="2"
-        p1:layout_margin="15dp" />
+        p1:layout_margin="15dp"
+        p1:tag="8" />
 </GridLayout>
