@@ -6,6 +6,8 @@ using Android.Views;
 namespace Connect3
 {
     //https://developer.xamarin.com/guides/android/user_interface/material_theme/
+
+    //TODO game is continued even after one player has won. prevent playing after linearLayout for game reset is visible
     [Activity(Label = "Connect3", MainLauncher = true, Icon = "@drawable/icon",
         Theme = "@android:style/Theme.DeviceDefault.Light")]
     public class MainActivity : Activity
@@ -19,7 +21,7 @@ namespace Connect3
         private ImageView _image20;
         private ImageView _image21;
         private ImageView _image22;
-        private LinearLayout _linearLayoutMessage;
+        private LinearLayout _linearLayoutResetGame;
         private Button _buttonResetGame;
         private TextView _textViewMessage;
         private Player _activePlayer = Player.RedPlayer;
@@ -53,8 +55,8 @@ namespace Connect3
             _image22 = FindViewById<ImageView>(Resource.Id.imageView22);
             _image22.Click += imamge_Click;
 
-            _linearLayoutMessage = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
-            _linearLayoutMessage.Visibility=ViewStates.Invisible;
+            _linearLayoutResetGame = FindViewById<LinearLayout>(Resource.Id.linearLayoutResetGame);
+            _linearLayoutResetGame.Visibility=ViewStates.Invisible;
 
             _textViewMessage = FindViewById<TextView>(Resource.Id.textViewMessage);
             _buttonResetGame = FindViewById<Button>(Resource.Id.buttonReset);
@@ -63,7 +65,7 @@ namespace Connect3
 
         private void _buttonResetGame_Click(object sender, System.EventArgs e)
         {
-            _linearLayoutMessage.Visibility=ViewStates.Invisible;
+            _linearLayoutResetGame.Visibility=ViewStates.Invisible;
             resetGame();
         }
 
@@ -93,7 +95,7 @@ namespace Connect3
                     return;
             }
             _textViewMessage.Text = "All Blocks Are Taken. No Winner";
-            _linearLayoutMessage.Visibility=ViewStates.Visible;
+            _linearLayoutResetGame.Visibility=ViewStates.Visible;
         }
 
         private bool checkWinner()
@@ -162,7 +164,7 @@ namespace Connect3
             else if (winner == Winner.YellowPlayer)
                 message = "Yellow Player Won";
             _textViewMessage.Text = message;
-            _linearLayoutMessage.Visibility=ViewStates.Visible;
+            _linearLayoutResetGame.Visibility=ViewStates.Visible;
         }
 
         private void resetGame()

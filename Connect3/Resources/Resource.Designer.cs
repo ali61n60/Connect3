@@ -73,7 +73,7 @@ namespace Connect3
 			public const int buttonReset = 2131034124;
 			
 			// aapt resource value: 0x7f050001
-			public const int gridLayout1 = 2131034113;
+			public const int gridLayoutGameBoard = 2131034113;
 			
 			// aapt resource value: 0x7f050002
 			public const int imageView00 = 2131034114;
@@ -103,7 +103,7 @@ namespace Connect3
 			public const int imageView22 = 2131034122;
 			
 			// aapt resource value: 0x7f05000b
-			public const int linearLayout1 = 2131034123;
+			public const int linearLayoutResetGame = 2131034123;
 			
 			// aapt resource value: 0x7f050000
 			public const int relativeLayout1 = 2131034112;
